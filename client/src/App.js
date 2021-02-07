@@ -7,11 +7,13 @@ import Listings from "./pages/listing/Listing"
 import Listinginfo from "./pages/listingInfo/listingInfo"
 import AddListing from "./pages/addListing/AddListing"
 import Owner from "./pages/owner/Owner"
+import NavBar from "./components/navbar/NavBar"
 
 
 function App() {
   return (
     <Router>
+      <NavBar/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
@@ -21,7 +23,6 @@ function App() {
         <Route exact path="/owner" component={Owner} />
         <Route exact path="/owner/add" component={AddListing} />
       </Switch>
-
     </Router>
   );
 }
