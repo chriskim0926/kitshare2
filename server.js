@@ -25,7 +25,7 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-const ProductsController = require("./controllers/productsController");
+// const ProductsController = require("./controllers/productsController");
 
 app.use(express.static("client/build"));
 
