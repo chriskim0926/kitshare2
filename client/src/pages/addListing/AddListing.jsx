@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useState } from "react";
+import axios from "axios"
+import AddListingForm from "../../components/addListingForm/AddListingForm"
 
 const AddListing = () => {
-    return (
-        <div className = "container">
-        <div className = "row">
-         <div className = "col">
-             <h1 className = "center-align">Add New Listings</h1>
-         </div>
+ 
+  
+    const handleFormSubmit = (e, listingInfo) => {
+        e.preventDefault();
 
-        </div>
-     </div>
-    );
+        axios
+          .post("/api/restaurant", listingInfo)
+          .then((response) => {
+            console.log(response.data);
+            // history.push("/admin");
+          })
+          .catch((err) => {
+            console.log(err);
+            alert.setAlert({
+              message: "Failed to create new listing.",
+              type: "danger",
+            });
+          });
+      };
+
+  return (
+    <div className="container">
+      <h1>Add new Listing</h1>
+      <AddListingForm handleFormSubmit = {handleFormSubmit}/>
+    </div>
+  );
 };
 
 export default AddListing;

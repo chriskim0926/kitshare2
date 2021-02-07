@@ -1,0 +1,159 @@
+import React, {useState} from 'react';
+
+
+const AddListingForm = (handleFormSubmit) => {
+    const [restaurant, setRestaurant] = useState("");
+    const [contact, setContact] = useState("");
+    const [address, setAddress] = useState("");
+    const [sharePrice, setSharePrice] = useState("");
+    const [sf, setSf] = useState("");
+    const [cuisine, setCuisine] = useState("");
+    const [restaurantComment, setRestaurantComment] = useState("");
+    const [imageURL, setImageURL] = useState("");
+    const [availability, setAvailability] = useState(false);
+  
+
+
+    return (
+        <form class="col s12" action="#" onSubmit = {(e) => {
+            handleFormSubmit(e,{
+                     restaurant,
+                      contact,
+                      address,
+                      sharePrice,
+                      sf,
+                      cuisine,
+                      restaurantComment,
+                      imageURL,
+                      availability,
+            })
+        }} >
+        <div className="row">
+          <div className="input-field col s6">
+            <input
+              id="restaurant"
+              type="text"
+              name="restaurant"
+              value={restaurant}
+              onChange={(e) => {
+                setRestaurant(e.target.value);
+              }}
+            />
+            <label htmlFor="Restaurant Name">Restaurant Name</label>
+          </div>
+          <div className="input-field col s6">
+            <input
+              id="contact_name"
+              type="text"
+              name="contact"
+              value={contact}
+              onChange={(e) => {
+                setContact(e.target.value);
+              }}
+            />
+            <label htmlFor="Contact Name">Contact Name</label>
+          </div>
+        </div>
+
+        <div className="input-field col s6">
+          <input
+            id="address"
+            type="text"
+            name="address"
+            value={address}
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+          />
+          <label htmlFor="Address>Address">Address</label>
+        </div>
+        <div className="row">
+          <div className="input-field col s6">
+            <input
+              id="sharePrice"
+              type="number"
+              name="sharePrice"
+              value={sharePrice}
+              onChange={(e) => {
+                setSharePrice(e.target.value);
+              }}
+            />
+            <label htmlFor="Share Price">Share Price</label>
+          </div>
+          <div className="input-field col s6">
+            <input
+              id="sf"
+              type="number"
+              name="sf"
+              value={sf}
+              onChange={(e) => {
+                setSf(e.target.value);
+              }}
+            />
+            <label htmlFor="SF">Shareable Space Size</label>
+          </div>
+        </div>
+        <div className="input-field col s6">
+          <input
+            id="cuisine"
+            type="text"
+            name="cuisine"
+            value={cuisine}
+            onChange={(e) => {
+              setCuisine(e.target.value);
+            }}
+          />
+          <label htmlFor="Cuisine">Cuisine Currently Being Offered</label>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              id="imageURL"
+              type="text"
+              name="imageURL"
+              value={imageURL}
+              onChange={(e) => {
+                setImageURL(e.target.value);
+              }}
+            />
+            <label htmlFor="imageURL">Restaurant imageURL</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="input-field col s12">
+            <input
+              id="restaurantComment"
+              type="text"
+              name="restaurantComment"
+              value={restaurantComment}
+              onChange={(e) => {
+                setRestaurantComment(e.target.value);
+              }}
+            />
+            <label for="Restaurant Comment">Restaurant Comment</label>
+          </div>
+          <p>
+            <label>
+              <input
+                className="filled-in"
+                type="checkbox"
+                class="filled-in"
+                checked="checked"
+                name="availability"
+                value={availability}
+                onChange={() => {setAvailability(!availability)}}
+              />
+              <span>Is this space currently available?</span>
+            </label>
+          </p>
+          <div className="row">
+        <button
+          handleFormSubmit= {handleFormSubmit} clas
+        >Create New Listing</button>
+      </div>
+        </div>
+      </form>
+    );
+};
+
+export default AddListingForm;
