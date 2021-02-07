@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Projects", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/kitshare", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -33,7 +33,7 @@ app.get("/api/config", (req, res) => {
   res.json({ success: true });
 });
 
-app.use("/api/products", ProductsController);
+// app.use("/api/products", ProductsController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
