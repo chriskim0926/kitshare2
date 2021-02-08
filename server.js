@@ -5,6 +5,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -25,7 +26,7 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
-// const ProductsController = require("./controllers/productsController");
+const ListingController = require("./controllers/listingController");
 
 app.use(express.static("client/build"));
 
@@ -33,7 +34,7 @@ app.get("/api/config", (req, res) => {
   res.json({ success: true });
 });
 
-// app.use("/api/products", ProductsController);
+app.use("/api/restaurants", ListingController);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));

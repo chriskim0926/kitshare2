@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <nav id  = "navbar">
-    <div class="nav-wrapper">
+    <div className="nav-wrapper">
       <NavLink to="/" className="brand-logo">KitShare</NavLink>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><NavLink to="/owner">Reastraunt Owner</NavLink></li>

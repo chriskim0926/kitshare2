@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 
 
-const AddListingForm = (handleFormSubmit) => {
+const AddListingForm = ({handleFormSubmit}) => {
+    
     const [restaurant, setRestaurant] = useState("");
     const [contact, setContact] = useState("");
     const [address, setAddress] = useState("");
@@ -12,11 +13,13 @@ const AddListingForm = (handleFormSubmit) => {
     const [imageURL, setImageURL] = useState("");
     const [availability, setAvailability] = useState(false);
   
-
+    // onSubmit = {console.log("hello")}
 
     return (
-        <form class="col s12" action="#" onSubmit = {(e) => {
-            handleFormSubmit(e,{
+        <>
+        <form className="col s12" 
+        onSubmit={(e) => {
+          handleFormSubmit(e, {
                      restaurant,
                       contact,
                       address,
@@ -27,7 +30,8 @@ const AddListingForm = (handleFormSubmit) => {
                       imageURL,
                       availability,
             })
-        }} >
+        }} 
+        >
         <div className="row">
           <div className="input-field col s6">
             <input
@@ -130,14 +134,13 @@ const AddListingForm = (handleFormSubmit) => {
                 setRestaurantComment(e.target.value);
               }}
             />
-            <label for="Restaurant Comment">Restaurant Comment</label>
+            <label htmlFor="Restaurant Comment">Restaurant Comment</label>
           </div>
           <p>
             <label>
               <input
                 className="filled-in"
                 type="checkbox"
-                class="filled-in"
                 checked="checked"
                 name="availability"
                 value={availability}
@@ -147,12 +150,11 @@ const AddListingForm = (handleFormSubmit) => {
             </label>
           </p>
           <div className="row">
-        <button
-          handleFormSubmit= {handleFormSubmit} clas
-        >Create New Listing</button>
+        <button className = "btn waves-effect waves-light" type= "submit" name= "action">Create New Listing</button>
       </div>
         </div>
       </form>
+      </>
     );
 };
 
