@@ -31,6 +31,7 @@ const ListingController = require("./controllers/listingController");
 app.use(express.static("client/build"));
 
 app.get("/api/config", (req, res) => {
+  console.log("TEST");
   res.json({ success: true });
 });
 

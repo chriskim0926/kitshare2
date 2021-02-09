@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 const db = require("../models/restaurants");
 
-
-
-
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/Projects"
+  "mongodb://localhost/kitshare"
 );
 
 

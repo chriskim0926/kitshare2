@@ -5,10 +5,11 @@ import AddListingForm from "../../components/addListingForm/AddListingForm"
 const AddListing = () => {
  
   
-  const handleFormSubmit = (e, productData) => {
+  const handleFormSubmit = 
+  (e, listingInfo) => {
     e.preventDefault();
     axios
-      .post("/api/restaurants", productData)
+      .post("/api/restaurants", listingInfo)
       .then((response) => {
         console.log(response.data);
       })
@@ -16,6 +17,7 @@ const AddListing = () => {
         console.log(err);
       });
   };
+
 
   return (
     <div className="container">

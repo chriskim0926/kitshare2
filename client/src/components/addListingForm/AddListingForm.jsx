@@ -17,7 +17,8 @@ const AddListingForm = ({handleFormSubmit}) => {
 
     return (
         <>
-        <form className="col s12" 
+        <form 
+        className="col s12" 
         onSubmit={(e) => {
           handleFormSubmit(e, {
                      restaurant,
